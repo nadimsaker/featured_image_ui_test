@@ -17,6 +17,10 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.get('#submit-btn').click()
         cy.wait(5000)
         cy.get('.nc-library').click()
-        
+        cy.get('.display-flex > .ndl-Button--primary > .ndl-Button-label').click()
+        cy.wait(2000)
+        cy.get('.fsp-source-list__item--active').click()
+
+        cy.contains('Select Files to Upload').selectFile('//cypress//integration//test_data//images//sundarban-day.jpg')
     })
   })
