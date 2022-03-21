@@ -5,6 +5,7 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.get('#submit-btn').click()
         cy.get('.form-control').type('G*mTy5!cWj4C&9')
         cy.get('#submit-btn').click()
+        cy.wait(5000)
         cy.get('.nc-library').click()
     })
   })
