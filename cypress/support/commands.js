@@ -25,3 +25,19 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import 'cypress-file-upload';
+
+Cypress.Commands.add('login', (email, password) => {
+    cy.get('.form-control').type(email)
+    cy.get('#submit-btn').click()
+    cy.get('.form-control').type(password)
+    cy.get('#submit-btn').click()
+    cy.wait(5000)
+})
+
+
+
+Cypress.Commands.add('navigateToLibrary', (email, password) => {
+    cy.get('.nc-library').click()
+})
+
+

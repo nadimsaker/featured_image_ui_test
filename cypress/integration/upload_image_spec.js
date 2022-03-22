@@ -11,7 +11,7 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.get('.nc-library').click()
     })
 
-    it.only('The user uploads an image from their local machine to the library', () => {
+    it('The user uploads an image from their local machine to the library', () => {
         cy.visit("https://app.welcomesoftware.com/")
         cy.get('.form-control').type("nadimsaker@gmail.com")
         cy.get('#submit-btn').click()
@@ -21,12 +21,6 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.get('.nc-library').click()
         cy.get('.display-flex > .ndl-Button--primary > .ndl-Button-label').click()
         cy.wait(5000)
-        //cy.get('.fsp-source-list__item--active').click()
-        //cy.get('.fsp-drop-area').click()
-
-    //     cy.get('.fsp-drop-area').attachFile({
-    //         fileName: '/test_data/images/sundarban-day.jpg'
-    //    });
 
        cy.get('#fsp-fileUpload').attachFile({
            fileName: 'sundarban-day.jpg',
@@ -42,7 +36,22 @@ describe('Users should be able to use upload images for use in articles.', () =>
   
        cy.wait(3000)
        cy.get('.ndl-ButtonGroup > .ndl-Button--primary').click()
-       // cy.get('#fsp-fileUpload').selectFile('//cypress//integration//test_data//images//sundarban-day.jpg')
 
     })
+
+    it('The user opens the uploaded image in the image editor and resizes the image and Saves the resized image', () => {
+        cy.visit("/")
+        cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
+        cy.navigateToLibrary()
+        cy.get('.thumbnail').first().dblclick()
+        cy.get(':nth-child(4) > .ndl-Button-label').click()
+        cy.wait(2000)
+        cy.get('.sc-fzowVh').click()
+        cy.get('#photoeditorsdk-transformScaleWidth').click().clear().type(500)
+        cy.get('#photoeditorsdk-transformScaleHeight').click().clear().type(200)
+        cy.get('.image-editor-action-buttons > .ndl-Button--primary').click()
+    })
+
+//The user saves the resized image
+
   })
