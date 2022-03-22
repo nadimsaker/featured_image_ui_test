@@ -12,13 +12,9 @@ describe('Users should be able to use upload images for use in articles.', () =>
     })
 
     it('The user uploads an image from their local machine to the library', () => {
-        cy.visit("https://app.welcomesoftware.com/")
-        cy.get('.form-control').type("nadimsaker@gmail.com")
-        cy.get('#submit-btn').click()
-        cy.get('.form-control').type('G*mTy5!cWj4C&9')
-        cy.get('#submit-btn').click()
-        cy.wait(5000)
-        cy.get('.nc-library').click()
+        cy.visit("/")
+        cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
+        cy.navigateToLibrary()
         cy.get('.display-flex > .ndl-Button--primary > .ndl-Button-label').click()
         cy.wait(5000)
 
@@ -52,6 +48,14 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.get('.image-editor-action-buttons > .ndl-Button--primary').click()
     })
 
-//The user saves the resized image
+    
+    it.only('The user creates a new task', () => {
+        cy.visit("/")
+        cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
+        cy.get('#create-new > .ndl-Dropdown > .ndl-Button').click()
+        cy.get(':nth-child(2) > .ndl-Dropdown-option > .ndl-Option-label > a').click()
+        
+    })
+
 
   })
