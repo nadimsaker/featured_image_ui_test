@@ -19,8 +19,14 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.get('.nc-library').click()
         cy.get('.display-flex > .ndl-Button--primary > .ndl-Button-label').click()
         cy.wait(2000)
-        cy.get('.fsp-source-list__item--active').click()
+        //cy.get('.fsp-source-list__item--active').click()
+        //cy.get('.fsp-drop-area').click()
 
-        cy.contains('Select Files to Upload').selectFile('//cypress//integration//test_data//images//sundarban-day.jpg')
+        cy.get('.fsp-drop-area').attachFile({
+            fileName: '//test_data//images//sundarban-day.jpg',
+            mimeType: 'img' 
+       });
+       // cy.get('#fsp-fileUpload').selectFile('//cypress//integration//test_data//images//sundarban-day.jpg')
+
     })
   })
