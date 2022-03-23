@@ -1,6 +1,15 @@
 /// <reference types="cypress" />
+///<reference types="cypress-iframe" />
+
+import 'cypress-iframe';
 
 describe('Users should be able to use upload images for use in articles.', () => {
+    beforeEach(() => {
+
+        cy.visit("/")
+        cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
+      
+      })
     it('The user navigates to the library', () => {
         cy.visit("https://app.welcomesoftware.com/")
         cy.get('.form-control').type("nadimsaker@gmail.com")
@@ -68,10 +77,18 @@ describe('Users should be able to use upload images for use in articles.', () =>
 
     
     it.only('The user adds a new article to the newly created task', () => {
-        cy.visit("/")
-        cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
-       
-        
+
+        cy.get('.nc-plan > .nav-icon-wrapper > svg').click()
+        cy.get('.ndl-SearchBar-collapsed > .ndl-FormControl > .ndl-Input > .ndl-Input-field-wrapper > .ndl-Input-field > .ndl-Input-input').click().type('Resize the attached image')
+        cy.wait(3000)
+        cy.get('.ag-row-odd > .ag-cell > .ag-react-container > .ndl-GroupCellWrapper > .ndl-GroupCellWrapper-inner-container > .uni-TitleCell > .uni-TitleCell-titleWrapper > .uni-TitleCell-titleContainer > a > .uni-TitleCell-title').click()
+        cy.get('.left-pane > .ndl-Tabs > :nth-child(2) > .ndl-Tabs-option > .ndl-Option-label').click()
+        cy.get('.content-tab-header-top > :nth-child(1) > .ndl-Dropdown > .ndl-Button > .ndl-Button-label').click()
+        cy.get(':nth-child(1) > .ndl-Dropdown-option > .ndl-Option-label > .ndl-Option-truncatedLabel').click()
+        cy.get('.ndl-InlineEditDisplayMode-iconWrapper').click()
+        cy.get('.ndl-InlineEditEditMode-input').type("This is an article about image.")
+        cy.iframe('.tox-edit-area__iframe').click().type('This is a test description.')
+        cy.get('.art-Header--rightActions > .ndl-Button--primary').click()
     })
 
 

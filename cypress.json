@@ -1,4 +1,5 @@
 
 {
-   "baseUrl": "https://app.welcomesoftware.com"
+   "baseUrl": "https://app.welcomesoftware.com",
+   "chromeWebSecurity": false
 }
