@@ -67,11 +67,10 @@ describe('Users should be able to use upload images for use in articles.', () =>
     })
 
     
-    it('The user adds a new article to the newly created task', () => {
+    it.only('The user adds a new article to the newly created task', () => {
         cy.visit("/")
         cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
-        cy.get('#create-new > .ndl-Dropdown > .ndl-Button').click()
-        cy.get(':nth-child(2) > .ndl-Dropdown-option > .ndl-Option-label > a').click()
+       
         
     })
 
