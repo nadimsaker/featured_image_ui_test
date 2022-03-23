@@ -54,7 +54,16 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
         cy.get('#create-new > .ndl-Dropdown > .ndl-Button').click()
         cy.get(':nth-child(2) > .ndl-Dropdown-option > .ndl-Option-label > a').click()
-        
+        cy.get('.tsk-TaskForm > :nth-child(1) > :nth-child(1) > .ndl-FormControl > .ndl-Input > .ndl-Input-field-wrapper > .ndl-Input-field > .ndl-Input-input').clear().type('Resize the attached image')
+        cy.get(':nth-child(2) > .ndl-FormControl > .ndl-Select > .ndl-Select__control > .ndl-Select__indicators > .ndl-Select__indicator > .nc-icon > .nc-icon-wrapper > svg').click()
+        cy.get('.ndl-Select__menu-list > :nth-child(2)').click()
+        cy.get(':nth-child(1) > .ndl-FormControl > .ndl-DatePicker > .ndl-DayPickerInput > .ndl-DatePicker-wrapper > .ndl-DatePicker-input').click()
+        cy.get(':nth-child(1) > .ndl-FormControl > .ndl-DatePicker > .ndl-DayPickerInput > .ndl-DatePicker-wrapper > .ndl-DatePicker-input').clear().type('Mar 23, 2022')
+        cy.get(':nth-child(2) > .ndl-FormControl > .ndl-DatePicker > .ndl-DayPickerInput > .ndl-DatePicker-wrapper > .ndl-DatePicker-input').click()
+        cy.get(':nth-child(2) > .ndl-FormControl > .ndl-DatePicker > .ndl-DayPickerInput > .ndl-DatePicker-wrapper > .ndl-DatePicker-input').clear().type('Mar 31, 2022')
+        cy.get(':nth-child(3) > .ndl-Grid > .ndl-Grid-container > [data-size="full"] > .ndl-FormControl > .ndl-Select > .ndl-Select__control > .ndl-Select__value-container').click()
+        cy.get('.ndl-Select__menu-list > :nth-child(2)').click()
+        cy.get('.tsk-CreatePageActions > .ndl-Button--primary').click()
     })
 
 
