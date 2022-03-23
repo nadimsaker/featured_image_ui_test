@@ -49,7 +49,7 @@ describe('Users should be able to use upload images for use in articles.', () =>
     })
 
     
-    it.only('The user creates a new task', () => {
+    it('The user creates a new task', () => {
         cy.visit("/")
         cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
         cy.get('#create-new > .ndl-Dropdown > .ndl-Button').click()
@@ -64,6 +64,15 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.get(':nth-child(3) > .ndl-Grid > .ndl-Grid-container > [data-size="full"] > .ndl-FormControl > .ndl-Select > .ndl-Select__control > .ndl-Select__value-container').click()
         cy.get('.ndl-Select__menu-list > :nth-child(2)').click()
         cy.get('.tsk-CreatePageActions > .ndl-Button--primary').click()
+    })
+
+    
+    it('The user adds a new article to the newly created task', () => {
+        cy.visit("/")
+        cy.login("nadimsaker@gmail.com",'G*mTy5!cWj4C&9')
+        cy.get('#create-new > .ndl-Dropdown > .ndl-Button').click()
+        cy.get(':nth-child(2) > .ndl-Dropdown-option > .ndl-Option-label > a').click()
+        
     })
 
 
