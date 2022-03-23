@@ -80,7 +80,7 @@ describe('Users should be able to use upload images for use in articles.', () =>
         cy.get('.art-Header--rightActions > .ndl-Button--primary').click()
     })
 
-    it.only('The user uses the image uploaded to the library in the earlier step as the article’s featured image', () => {
+    it('The user uses the image uploaded to the library in the earlier step as the article’s featured image', () => {
 
         cy.get('.nc-plan > .nav-icon-wrapper > svg').click()
         cy.get('.ndl-SearchBar-collapsed > .ndl-FormControl > .ndl-Input > .ndl-Input-field-wrapper > .ndl-Input-field > .ndl-Input-input').click().type('Resize the attached image')
@@ -95,9 +95,4 @@ describe('Users should be able to use upload images for use in articles.', () =>
 
     })
 
-
-   
-
-
-
-  })
+})
