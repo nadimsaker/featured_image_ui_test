@@ -3,7 +3,7 @@
 
 Clone the repo from Github master branch
 For installation
-    npm i --save-dev
+npm i --save-dev
 
 For running the project 
-   npm test
+npm test
