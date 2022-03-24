@@ -2,8 +2,8 @@
  This is an automation project.
 
 Clone the repo from Github master branch
-For installation
+# For installation
 npm i --save-dev
 
-For running the project 
+# For running the project 
 npm test
